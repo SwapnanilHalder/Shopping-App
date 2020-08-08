@@ -27,20 +27,25 @@ class ProductItem extends StatelessWidget {
         ),
         footer: GridTileBar(
           backgroundColor: Colors.black87,
-          title: Text(
-            _item.title,
-            overflow: TextOverflow.visible,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline6.copyWith(
-                  color: Colors.white,
-                ),
+          title: SizedBox(
+            child: Text(
+              _item.title,
+              overflow: TextOverflow.visible,
+              maxLines: 2,
+              textAlign: TextAlign.justify,
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                    color: Colors.white,
+                    fontSize: mm * 2.3,
+                  ),
+            ),
           ),
           leading: Consumer<ProductBuilder>(
             builder: (context, value, child) {
               return IconButton(
+                padding: EdgeInsets.symmetric(horizontal: 0),
                 icon: Icon(
                     _item.isFavourite ? Icons.favorite : Icons.favorite_border),
-                iconSize: 3.3 * mm,
+                iconSize: 4.6 * mm,
                 onPressed: () {
                   _item.toggleFavourite();
                 },
@@ -49,8 +54,10 @@ class ProductItem extends StatelessWidget {
             },
           ),
           trailing: IconButton(
+            padding: EdgeInsets.symmetric(horizontal: 0),
+            alignment: Alignment.center,
             icon: Icon(Icons.add_shopping_cart),
-            iconSize: 3.3 * mm,
+            iconSize: 4.6 * mm,
             onPressed: () {},
             color: Theme.of(context).accentColor,
           ),
