@@ -37,8 +37,12 @@ class ProductsProvider with ChangeNotifier {
     ),
   ];
 
-  List<ProductBuilder> get getList {
+  List<ProductBuilder> get getListAll {
     return [..._items];
+  }
+
+  List<ProductBuilder> get getListFav {
+    return _items.where((element) => (element.isFavourite == true)).toList();
   }
 
   ProductBuilder findbyId(String id) {
