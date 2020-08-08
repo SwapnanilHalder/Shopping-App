@@ -11,16 +11,16 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ProductsProvider(),
+    return ChangeNotifierProvider.value(
+      value: ProductsProvider(),
       child: MaterialApp(
         title: "Shopping App",
         theme: ThemeData(
           primarySwatch: Colors.purple,
           accentColor: Colors.deepOrange,
           textTheme: GoogleFonts.chilankaTextTheme(
-              Theme.of(context).textTheme,
-              ),
+            Theme.of(context).textTheme,
+          ),
         ),
         routes: {
           '/': (ctx) => ProductsOverviewScreen(),
