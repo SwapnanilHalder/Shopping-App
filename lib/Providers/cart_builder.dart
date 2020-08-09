@@ -35,7 +35,7 @@ class CartBuilder with ChangeNotifier {
     double total = 0;
     _cartList.forEach(
       (key, item) {
-        total += item.price * item.quantity;
+        total += double.parse((item.price * item.quantity).toStringAsFixed(2));
       },
     );
     return total;
