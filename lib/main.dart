@@ -6,6 +6,7 @@ import './Providers/cart_builder.dart';
 import './Providers/products_provider.dart';
 import './Screens/product_details_screen.dart';
 import './Screens/products_overview_screen.dart';
+import './Screens/cart_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,13 +27,13 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
           accentColor: Colors.deepOrange,
-          textTheme: GoogleFonts.chilankaTextTheme(
-            Theme.of(context).textTheme,
-          ),
+          textTheme: GoogleFonts.srirachaTextTheme(
+          ).apply(displayColor: Colors.black),
         ),
         routes: {
           '/': (ctx) => ProductsOverviewScreen(),
           ProductDetailsScreen.routeName: (ctx) => ProductDetailsScreen(),
+          CartScreen.routeName: (ctx) => CartScreen(),
         },
       ),
     );

@@ -31,6 +31,16 @@ class CartBuilder with ChangeNotifier {
     return total;
   }
 
+  double get getTotalAmount {
+    double total = 0;
+    _cartList.forEach(
+      (key, item) {
+        total += item.price * item.quantity;
+      },
+    );
+    return total;
+  }
+
   void addInCart({String productId, double price, String title}) {
     if (_cartList.containsKey(productId)) {
       _cartList.update(

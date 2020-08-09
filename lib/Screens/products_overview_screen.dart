@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import '../Providers/cart_builder.dart';
 import '../Widgets/badge.dart';
 import '../Widgets/products_grid_builder.dart';
+import '../Screens/cart_screen.dart';
+
 import '../unit_length.dart';
 
 enum selectedEntry {
@@ -41,7 +43,9 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
             },
             child: IconButton(
               icon: Icon(Icons.shopping_cart),
-              onPressed: () {},
+              onPressed: () {
+                return Navigator.of(context).pushNamed(CartScreen.routeName);
+              },
             ),
           ),
           PopupMenuButton(
