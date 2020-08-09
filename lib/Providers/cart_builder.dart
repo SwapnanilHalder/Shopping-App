@@ -38,7 +38,7 @@ class CartBuilder with ChangeNotifier {
         total += double.parse((item.price * item.quantity).toStringAsFixed(2));
       },
     );
-    return total;
+    return double.parse(total.toStringAsFixed(2));
   }
 
   void addInCart({String productId, double price, String title}) {

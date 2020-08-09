@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../unit_length.dart';
 
 class CartItem extends StatelessWidget {
-
   final String title;
   final String id;
   final int quantity;
@@ -19,7 +18,10 @@ class CartItem extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(mm),
         child: ListTile(
-          leading: CircleAvatar(child: Text('\$$price'),radius: 5*mm,),
+          leading: CircleAvatar(
+            child: FittedBox(child: Text('\$$price')),
+            radius: 5 * mm,
+          ),
           title: Text(title),
           subtitle: Text('Total: \$${(price * quantity).toStringAsFixed(2)}'),
           trailing: Text('$quantity x'),
