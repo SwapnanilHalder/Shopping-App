@@ -63,4 +63,9 @@ class CartBuilder with ChangeNotifier {
     }
     notifyListeners();
   }
+
+  void removeFromCart(String id) {
+    _cartList.removeWhere((key, value) => (value.id == id));
+    notifyListeners();
+  }
 }
