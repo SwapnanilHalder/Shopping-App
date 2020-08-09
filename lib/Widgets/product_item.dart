@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_app/Providers/product_builder.dart';
-import 'package:shopping_app/Screens/product_details_screen.dart';
+
+import '../Providers/cart_builder.dart';
+import '../Providers/product_builder.dart';
+import '../Screens/product_details_screen.dart';
 
 import '../unit_length.dart';
-import '../Screens/product_details_screen.dart';
 
 class ProductItem extends StatelessWidget {
   @override
@@ -28,6 +29,7 @@ class ProductItem extends StatelessWidget {
         footer: GridTileBar(
           backgroundColor: Colors.black87,
           title: SizedBox(
+            height: mm * 2,
             child: Text(
               _item.title,
               overflow: TextOverflow.visible,
@@ -53,13 +55,23 @@ class ProductItem extends StatelessWidget {
               );
             },
           ),
-          trailing: IconButton(
-            padding: EdgeInsets.symmetric(horizontal: 0),
-            alignment: Alignment.center,
-            icon: Icon(Icons.add_shopping_cart),
-            iconSize: 4.6 * mm,
-            onPressed: () {},
-            color: Theme.of(context).accentColor,
+          trailing: Consumer<CartBuilder>(
+            builder: (context, cartbuilder, child) {
+              return IconButton(
+                padding: EdgeInsets.symmetric(horizontal: 0),
+                alignment: Alignment.center,
+                icon: Icon(Icons.add_shopping_cart),
+                iconSize: 4.6 * mm,
+                onPressed: () {
+                  return cartbuilder.addInCart(
+                    price: _item.price,
+                    productId: _item.id,
+                    title: _item.title,
+                  );
+                },
+                color: Theme.of(context).accentColor,
+              );
+            },
           ),
         ),
       ),

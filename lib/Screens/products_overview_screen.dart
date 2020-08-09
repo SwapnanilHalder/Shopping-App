@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
-import '../unit_length.dart';
+import '../Providers/cart_builder.dart';
+import '../Widgets/badge.dart';
 import '../Widgets/products_grid_builder.dart';
+import '../unit_length.dart';
 
 enum selectedEntry {
   favourites,
@@ -29,6 +32,18 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           style: GoogleFonts.chilanka(),
         ),
         actions: [
+          Consumer<CartBuilder>(
+            builder: (context, cartbuilder, ch) {
+              return Badge(
+                child: ch,
+                value: cartbuilder.getTotalItems.toString(),
+              );
+            },
+            child: IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {},
+            ),
+          ),
           PopupMenuButton(
             icon: Icon(Icons.more_vert),
             itemBuilder: (context) => [
