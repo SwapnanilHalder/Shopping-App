@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
           accentColor: Colors.deepOrange,
-          textTheme: GoogleFonts.srirachaTextTheme(
+          textTheme: GoogleFonts.notoSansTextTheme(
           ).apply(displayColor: Colors.black),
         ),
         routes: {

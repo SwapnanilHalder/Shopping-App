@@ -16,20 +16,35 @@ class CartScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Shopping Cart"),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(3 * mm),
-        child: Row(
-          children: [
-            Text(
-              "Total : ",
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            SizedBox(width: 4 * mm),
-            Chip(
-              label: Text('${cartbuilder.getTotalAmount}'),
-              backgroundColor: Theme.of(context).primaryColor,
-            ),
-          ],
+      body: Card(
+        elevation: 1 * mm,
+        margin: EdgeInsets.all(2 * mm),
+        child: Padding(
+          padding: EdgeInsets.all(3 * mm),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Total : ",
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              Spacer(),
+              Chip(
+                label: Text('${cartbuilder.getTotalAmount}',
+                    style: Theme.of(context).textTheme.headline6.copyWith(
+                        color: Theme.of(context)
+                            .primaryTextTheme
+                            .headline6
+                            .color)),
+                backgroundColor: Theme.of(context).primaryColor,
+              ),
+              FlatButton(
+                onPressed: () {},
+                child: Text("ORDER NOW"),
+                textColor: Theme.of(context).primaryColor,
+              )
+            ],
+          ),
         ),
       ),
     );
